@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     public event Action OnPlayerJump;
+    public event Action<PlayerState> OnPlayerStateChangend;
 
     [Header("References")]
     [SerializeField] private Transform _orientationTransform;
@@ -110,6 +111,7 @@ public class PlayerController : MonoBehaviour
         if (newState != currentState)
         {
             _stateController.ChangeState(newState);
+            OnPlayerStateChangend?.Invoke(newState);
         }
 
     }

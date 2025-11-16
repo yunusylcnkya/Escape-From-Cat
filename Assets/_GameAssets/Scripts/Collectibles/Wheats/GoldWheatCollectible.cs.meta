@@ -1,2 +1,14 @@
 fileFormatVersion: 2
 guid: b721881157e398342b0b82e9d4acfcfc
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - _wheatDesignSO: {instanceID: 0}
+  - _playerController: {instanceID: 0}
+  - _playerStateUI: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
