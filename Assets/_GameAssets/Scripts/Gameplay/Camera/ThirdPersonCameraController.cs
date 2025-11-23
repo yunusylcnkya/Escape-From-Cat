@@ -22,6 +22,10 @@ public class ThirdPersonCameraController : MonoBehaviour
 
     void Update()
     {
+        if ((GameManager.Instance.GetCurrentGameState() != GameState.Play) && (GameManager.Instance.GetCurrentGameState() != GameState.Resume))
+        {
+            return;
+        }
         // Bu kısımda kamera ile oyuncunun arasındaki farkı buluyoruz.
         // Böylece kamera, oyuncunun nereye baktığını bilebiliyor.
         Vector3 viewDirection = _playerTransform.position - new Vector3(
