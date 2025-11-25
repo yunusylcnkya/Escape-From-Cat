@@ -12,10 +12,14 @@ public class HealthManager : MonoBehaviour
 
     [SerializeField] private int _maxHealt = 3;
     private int _currentHealth;
+
+
     void Awake()
     {
         Instance = this;
     }
+
+
     void Start()
     {
         _currentHealth = _maxHealt;
