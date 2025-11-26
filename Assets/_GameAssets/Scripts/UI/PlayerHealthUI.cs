@@ -62,9 +62,16 @@ public class PlayerHealthUI : MonoBehaviour
 
     private void AnimateDamageSprite(Image activeImage, RectTransform activeImageTransform)
     {
+        if (activeImageTransform == null || activeImage == null) return;
+
+        // Eski tweenleri öldür
+        activeImageTransform.DOKill();
+
         activeImageTransform.DOScale(0f, _scaleDuration).SetEase(Ease.InBack).OnComplete(() =>
         {
+            if (activeImageTransform == null || activeImage == null) return;
             activeImage.sprite = _playerUnhealtySprite;
+            activeImageTransform.DOKill();
             activeImageTransform.DOScale(1f, _scaleDuration).SetEase(Ease.OutBack);
 
         });

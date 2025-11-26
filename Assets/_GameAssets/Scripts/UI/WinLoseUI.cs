@@ -21,21 +21,38 @@ public class WinLoseUI : MonoBehaviour
         _blackBackgroundImage = _blackBackgroundObject.GetComponent<Image>();
         _winPopupTransform = _winPopup.GetComponent<RectTransform>();
         _losePopupTransform = _losePopup.GetComponent<RectTransform>();
-    }
 
+        // Başlangıç scale'i 0 olsun ki animasyon daha temiz olsun
+        _winPopupTransform.localScale = Vector3.zero;
+        _losePopupTransform.localScale = Vector3.zero;
+    }
 
     public void OnGameWin()
     {
+        KillTweens();
+
         _blackBackgroundObject.SetActive(true);
         _winPopup.SetActive(true);
+
         _blackBackgroundImage.DOFade(0.8f, _animationDuration).SetEase(Ease.Linear);
         _winPopupTransform.DOScale(1.5f, _animationDuration).SetEase(Ease.OutBack);
     }
+
     public void OnGameLose()
     {
+        KillTweens();
+
         _blackBackgroundObject.SetActive(true);
         _losePopup.SetActive(true);
+
         _blackBackgroundImage.DOFade(0.8f, _animationDuration).SetEase(Ease.Linear);
         _losePopupTransform.DOScale(1.5f, _animationDuration).SetEase(Ease.OutBack);
+    }
+
+    private void KillTweens()
+    {
+        _blackBackgroundImage?.DOKill();
+        _winPopupTransform?.DOKill();
+        _losePopupTransform?.DOKill();
     }
 }

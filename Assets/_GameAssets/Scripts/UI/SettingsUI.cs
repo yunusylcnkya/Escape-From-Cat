@@ -1,3 +1,4 @@
+using System;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
@@ -28,10 +29,19 @@ public class SettingsUI : MonoBehaviour
         _settingsPopupObject.transform.localScale = Vector3.zero;
         _settingsButton.onClick.AddListener(OnSettingsButtonClicked);
         _resumeButton.onClick.AddListener(OnResumeButtonClicked);
+        _mainMenuButton.onClick.AddListener(OnMainMenuButtonClicked);
+    }
+
+    private void OnMainMenuButtonClicked()
+    {
+        throw new NotImplementedException();
     }
 
     private void OnSettingsButtonClicked()
     {
+        _settingsPopupObject.transform.DOKill();
+        _blackBackgroundImage.DOKill();
+
         GameManager.Instance.ChangeGameState(GameState.Pause);
 
         _blackBackgroundObject.SetActive(true);
@@ -42,6 +52,9 @@ public class SettingsUI : MonoBehaviour
 
     private void OnResumeButtonClicked()
     {
+        _settingsPopupObject.transform.DOKill();
+        _blackBackgroundImage.DOKill();
+
         _blackBackgroundImage.DOFade(0.0f, _animationDuration).SetEase(Ease.Linear);
         _settingsPopupObject.transform.DOScale(0f, _animationDuration).SetEase(Ease.OutExpo).OnComplete(() =>
         {
@@ -52,4 +65,6 @@ public class SettingsUI : MonoBehaviour
         });
 
     }
+
+
 }
