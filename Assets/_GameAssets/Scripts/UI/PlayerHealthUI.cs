@@ -13,7 +13,7 @@ public class PlayerHealthUI : MonoBehaviour
     [SerializeField] private Sprite _playerUnhealtySprite; // Hasar almış kalp resmi
 
     [Header("Settings")]
-    [SerializeField] private float _scaleDuration; // Kalbin küçülüp büyüme süresi
+    [SerializeField] private float _scaleDuration; // Kalbin küçülüp büyüme süresis
 
     private RectTransform[] _playerHealthTransforms; // Kalplerin boyutunu kontrol etmek için
 

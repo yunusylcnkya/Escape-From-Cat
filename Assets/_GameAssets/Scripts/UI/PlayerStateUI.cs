@@ -34,7 +34,12 @@ public class PlayerStateUI : MonoBehaviour
     [Header("Settings")]
     [SerializeField] private float _moveDuration; // Animasyon süresi
     [SerializeField] private Ease _moveEase;      // Animasyon eğrisi
-
+    public RectTransform GetBoosterSpeedTransform => _boosterSpeedTransform;
+    public RectTransform GetBoosterJumpTransform => _boosterJumpTransform;
+    public RectTransform GetBoosterSlowTransform => _boosterSlowTransform;
+    public Image GetGoldBoosterWheatImage => _goldBoosterWheatImage;
+    public Image GetHolyBoosterWheatImage => _holyBoosterWheatImage;
+    public Image GetRottenBoosterWheatImage => _rottenBoosterWheatImage;
     private Image _playerWalkingImage;
     private Image _playerSlidingImage;
 
